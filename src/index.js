@@ -1,14 +1,19 @@
 import "./styles/main.scss";
 
 // import Weather from './app/modules/weather';
-// import * as weatherview from './app/view/weather-view';
-// import { elements, citiesId } from './app/view/base';
+import Clock from './app/modules/clock';
+import * as clockView from './app/view/clock-view';
+import elements from './app/view/base';
+
+const state = {}
+
+const controlClock = () => {
+    state.clock = new Clock();
+};
+
+setInterval(() => {
+    controlClock();
+    clockView.renderClock(state.clock);
+}, 1000);
 
 
-// for (const key in citiesId) {
-//     if (citiesId.hasOwnProperty(key)) {
-//         const element = citiesId[key];
-//         console.log(key + ' - ' + element);
-//     }
-// }
-// console.log(citiesId['narva'])
