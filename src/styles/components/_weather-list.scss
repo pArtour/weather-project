@@ -1,8 +1,112 @@
-.weather__list {
-    display: flex;
-    justify-content: space-between;
-}
+.weather {
+    // .weather__list
 
-.weather__item {
-    list-style: none;
+    &__list {
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+
+        width: 100%;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    // .weather__item
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        // height: 65px;
+        overflow: hidden;
+        list-style: none;
+        background-color: darken($color: $dark-blue, $amount: 2);
+
+        border-bottom: 1px solid $gray;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    // .weather__hour
+
+    &__hour {
+        background-color: darken($color: $dark-blue, $amount: 2);
+        color: #fff;
+        border: none;
+        font-size: 28px;
+        line-height: 30px;
+        margin: 0;
+        padding: 20px 0;
+        text-align: center;
+
+
+        &:hover {
+            cursor: pointer;
+            background-color: darken($color: $dark-blue, $amount: 4);
+            color: #fff;
+        }
+    }
+
+    // .weather__info-block
+
+    &__info-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0;
+
+        // display: none;
+        transform: translateY(100%);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 1s cubic-bezier(0.4, 0, 0.89, 0.65);
+
+        &_active {
+            max-height: 400px;
+            padding: 15px 15px 0 15px;
+
+            // display: block;
+            transform: translateY(0);
+            opacity: 1;
+            overflow: visible;
+        }
+    }
+
+    // .weather__icon
+
+    &__icon {
+        text-align: center;
+    }
+
+    // .weather__text
+
+    &__text {
+        display: flex;
+        justify-content: space-between;
+
+        margin: 0;
+        margin-bottom: 35px;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 20px;
+        
+    }
+
+}
+@media screen and (min-width: 768px) {
+    .weather {
+        &__hour {
+            font-size: 32px;
+            line-height: 34px;
+        }
+        &__text {
+            font-size: 24px;
+            line-height: 26px;
+        }
+    }
 }

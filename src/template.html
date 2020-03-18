@@ -8,7 +8,6 @@
 <body>
   <main class="main">
     <h1 class="heading">Weather and time in Sillamäe</h1>
-    <div class="clock-wrapper">
       <p class="clock">
         <span class="clock__hours">20</span>
         :
@@ -16,19 +15,20 @@
         :
         <span class="clock__">32</span>
       </p>
-    </div>
     <div class="weather">
       <ul class="weather__list">
 
         <li class="weather__item">
 
-          <h2 class="weather__hour">12 00 PM</h2>
+          <button class="weather__hour">12 00 PM</button>
 
-          <div class="weather__info-block">
-            
+          <div class="weather__info-block weather__info-block_active">
+
             <img  alt="" class="weather__icon">
   
             <p class="weather__text">Temperature<span class="weather__temp">20 C</span></p>
+
+            <p class="weather__text">Feels like<span class="weather__feels">18 C</span></p>
   
             <p class="weather__text">Condition<span class="weather__condition">Clear Sky</span></p>
   
@@ -39,6 +39,26 @@
           </div>
           
         </li>
+        <!-- <li class="weather__item">
+        
+          <button class="weather__hour">12 00 PM</button>
+        
+          <div class="weather__info-block">
+        
+            <img alt="" class="weather__icon">
+        
+            <p class="weather__text">Temperature<span class="weather__temp">20 C</span></p>
+        
+            <p class="weather__text">Condition<span class="weather__condition">Clear Sky</span></p>
+        
+            <p class="weather__text">Humidity<span class="weather__humidity">10%</span></p>
+        
+            <p class="weather__text">Wind<span class="weather__wind">4.45 m/s</span></p>
+        
+          </div>
+        
+        </li> -->
+        
         
       </ul>
     </div>
