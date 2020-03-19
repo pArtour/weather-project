@@ -4,7 +4,6 @@
     &__list {
         display: flex;
         flex-direction: column;
-        // justify-content: space-between;
 
         width: 100%;
 
@@ -19,7 +18,6 @@
         flex-direction: column;
 
         width: 100%;
-        // height: 65px;
         overflow: hidden;
         list-style: none;
         background-color: darken($color: $dark-blue, $amount: 2);
@@ -33,10 +31,6 @@
         &_active {
             .weather__info-block {
                 max-height: 400px;
-
-                // display: block;
-                // transform: translateY(0);
-                // overflow: visible;
             }
         }
     }
@@ -46,15 +40,18 @@
     &__hour {
         background-color: darken($color: $dark-blue, $amount: 2);
         color: $gray;
+
         border: none;
         font-size: 28px;
         line-height: 30px;
+
         margin: 0;
         padding: 20px 0;
+
         text-align: center;
 
-
-        &:hover {
+        &:hover, &:focus {
+            outline: none;
             cursor: pointer;
             background-color: darken($color: $dark-blue, $amount: 4);
             color: #fff;
@@ -67,12 +64,8 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        // padding: 0;
         padding: 0 15px;
 
-
-        // display: none;
-        // transform: translateY(100%);
         max-height: 0;
         transition: all 1s ease-out;
     }
@@ -89,8 +82,8 @@
         display: flex;
         justify-content: space-between;
 
-        margin: 0;
         margin: 15px 0;
+
         font-size: 18px;
         font-weight: 600;
         line-height: 20px;

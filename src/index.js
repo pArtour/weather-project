@@ -28,7 +28,8 @@ const weatherControl = async () => {
     // resArr -> subArr (1 day) -> objects (weather info) 
     const organizedWeatherArray = organizeArray(data);
     weatherView.renderWeather(organizedWeatherArray);
-    console.log(elements.weather);
+    console.log(organizedWeatherArray, organizedWeatherArray.length);
+    
     elements.weather.list.addEventListener('click', weatherView.toggleWeatherBlock);
     
 }

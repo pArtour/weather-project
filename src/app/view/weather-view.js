@@ -46,10 +46,7 @@ export const renderWeather = weatherList => {
     
               </div>
               
-            </li>
-        `
-        console.log(weatherObj);
-        
+            </li>`;
         elements.weather.list.insertAdjacentHTML('beforeend', markup);
     });
 }
