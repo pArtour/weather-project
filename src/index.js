@@ -5,7 +5,7 @@ import Weather from './app/modules/weather';
 import Clock from './app/modules/clock';
 import * as clockView from './app/view/clock-view';
 import * as weatherView from './app/view/weather-view';
-import elements from './app/view/base';
+import { elements } from './app/view/base';
 
 const state = {}
 
@@ -20,16 +20,17 @@ setInterval(() => {
 
 
 const weatherControl = async () => {
-    const weather = new Weather('Sillamäe');
-    const res = await weather.getWeather()
+    state.weather = new Weather('Sillamäe');
+    const res = await state.weather.getWeather();
     const data = res.data.list;
 
     // splitting one huge data array into orginized by days array 
     // resArr -> subArr (1 day) -> objects (weather info) 
     const organizedWeatherArray = organizeArray(data);
     weatherView.renderWeather(organizedWeatherArray);
-    // console.log(organizedWeatherArray);
-
+    console.log(elements.weather);
+    elements.weather.list.addEventListener('click', weatherView.toggleWeatherBlock);
+    
 }
 
 function organizeArray(array) {

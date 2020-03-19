@@ -29,6 +29,16 @@
         &:last-child {
             border-bottom: none;
         }
+
+        &_active {
+            .weather__info-block {
+                max-height: 400px;
+
+                // display: block;
+                // transform: translateY(0);
+                // overflow: visible;
+            }
+        }
     }
 
     // .weather__hour
@@ -57,24 +67,14 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 0;
+        // padding: 0;
+        padding: 0 15px;
+
 
         // display: none;
-        transform: translateY(100%);
+        // transform: translateY(100%);
         max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 1s cubic-bezier(0.4, 0, 0.89, 0.65);
-
-        &_active {
-            max-height: 400px;
-            padding: 15px 15px 0 15px;
-
-            // display: block;
-            transform: translateY(0);
-            opacity: 1;
-            overflow: visible;
-        }
+        transition: all 1s ease-out;
     }
 
     // .weather__icon
@@ -90,11 +90,10 @@
         justify-content: space-between;
 
         margin: 0;
-        margin-bottom: 35px;
+        margin: 15px 0;
         font-size: 18px;
         font-weight: 600;
         line-height: 20px;
-        
     }
 
 }

@@ -28,9 +28,9 @@ export const renderWeather = weatherList => {
         const markup = `
             <li class="weather__item">
     
-              <button class="weather__hour">${formatTime(time)}</button>
+              <button class="weather__hour weather-toggle-btn">${formatTime(time)}</button>
     
-              <div class="weather__info-block weather__info-block_active">
+              <div class="weather__info-block">
     
                 <img  alt="" class="weather__icon">
       
@@ -54,6 +54,9 @@ export const renderWeather = weatherList => {
     });
 }
 
-export const toggleWeatherBlock = (parent, event) => {
-    
+export const toggleWeatherBlock = event => {
+    const target = event.target;
+    if (target.classList.contains('weather-toggle-btn')) {
+        target.parentNode.classList.toggle('weather__item_active');
+    }
 }
