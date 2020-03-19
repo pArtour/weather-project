@@ -1,8 +1,10 @@
 import "./styles/main.scss";
+// api.openweathermap.org/data/2.5/forecast?q=Sillamäe&appid=d15a197088a06aa374d6a32ba2857654
 
 import Weather from './app/modules/weather';
 import Clock from './app/modules/clock';
 import * as clockView from './app/view/clock-view';
+import * as weatherView from './app/view/weather-view';
 import elements from './app/view/base';
 
 const state = {}
@@ -16,9 +18,6 @@ setInterval(() => {
     clockView.renderClock(state.clock);
 }, 1000);
 
-// api.openweathermap.org/data/2.5/forecast?q=Sillamäe&appid=d15a197088a06aa374d6a32ba2857654
-
-
 
 const weatherControl = async () => {
     const weather = new Weather('Sillamäe');
@@ -27,10 +26,9 @@ const weatherControl = async () => {
 
     // splitting one huge data array into orginized by days array 
     // resArr -> subArr (1 day) -> objects (weather info) 
-    const organizedArray = organizeArray(data);
-
-    
-    console.log(organizedArray);
+    const organizedWeatherArray = organizeArray(data);
+    weatherView.renderWeather(organizedWeatherArray);
+    // console.log(organizedWeatherArray);
 
 }
 

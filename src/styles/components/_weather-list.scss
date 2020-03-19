@@ -35,7 +35,7 @@
 
     &__hour {
         background-color: darken($color: $dark-blue, $amount: 2);
-        color: #fff;
+        color: $gray;
         border: none;
         font-size: 28px;
         line-height: 30px;
