@@ -3,9 +3,11 @@ import "./styles/main.scss";
 
 import Weather from './app/modules/weather';
 import Clock from './app/modules/clock';
+import Calendar from './app/modules/calendar';
 import * as clockView from './app/view/clock-view';
 import * as weatherView from './app/view/weather-view';
-import { elements } from './app/view/base';
+import * as calendarView from './app/view/calendar-view';
+import { elements, removeHTML } from './app/view/base';
 
 const state = {}
 
@@ -19,20 +21,39 @@ setInterval(() => {
 }, 1000);
 
 
+
+const calendarControl = (weatherArr) => {
+    state.calendar = new Calendar(weatherArr);
+    console.log(state.calendar);
+    const daysArr = state.calendar.getDays();
+
+    calendarView.renderCalendar(daysArr);
+
+}
+// Since the whole calendar data and view depends on the weather array,
+// it is necessary to put calendarControl into the weatherControl function
+
+
 const weatherControl = async () => {
     state.weather = new Weather('Sillamäe');
     const res = await state.weather.getWeather();
-    const data = res.data.list;
+    const dataArr = res.data.list;
 
     // splitting one huge data array into orginized by days array 
     // resArr -> subArr (1 day) -> objects (weather info) 
-    const organizedWeatherArray = organizeArray(data);
-    weatherView.renderWeather(organizedWeatherArray);
-    console.log(organizedWeatherArray, organizedWeatherArray.length);
+
+    state.weatherArray = organizeArray(dataArr);
+    weatherView.renderWeather(state.weatherArray);
+    // console.log(state.weatherArray , state.weatherArray .length);
+
+    calendarControl(state.weatherArray);
+    
+
     
     elements.weather.list.addEventListener('click', weatherView.toggleWeatherBlock);
     
 }
+
 
 function organizeArray(array) {
     const resArr = [];
@@ -47,7 +68,19 @@ function organizeArray(array) {
     return resArr;
 }
 
+elements.calendar.addEventListener('click', event => {
+    if (event.target.closest('.calendar__btn')) {
+        const dayNumber = Array.from(event.target.parentNode.parentNode.children).indexOf(event.target.parentNode);
+        console.log(dayNumber);
+        removeHTML(elements.weather.list);
+        weatherView.renderWeather(state.weatherArray, dayNumber);
+        // Array.from(el.parentNode.children).indexOf(el)
+        
+    };
+});
+
 window.addEventListener('DOMContentLoaded', weatherControl)
+// window.addEventListener('DOMContentLoaded', calendarControl)
 
 
 

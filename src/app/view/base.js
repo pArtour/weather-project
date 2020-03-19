@@ -6,5 +6,10 @@ export const elements = {
     },
     weather: {
         list: document.querySelector('.weather__list')
-    }
+    },
+    calendar: document.querySelector('.calendar__list')
+}
+
+export const removeHTML = parent => {
+    parent.innerHTML = '';
 }

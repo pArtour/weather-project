@@ -3,28 +3,34 @@ import { elements } from "./base";
 const formatTime = time => {
     let [hours, minutes] = time.split(':');
     if (parseInt(hours) > 11) {
-        if (hours == 12) {
+        if (hours === '12') {
             time += ' PM';
             return time;
         }
-        hours = hours - 12;
+        hours = '0' + (hours - 12);
         time = `${hours}:${minutes} PM`;
     } else {
-        time += 'AM'
+        time += ' AM'
     }
     return time;
 }
 const kelvinToCelcius = temperature => Math.round(temperature - 273);
 
-export const renderWeather = weatherList => {
-    const day = weatherList[0];
-    day.forEach((weatherObj, index) => {
+export const renderWeather = (weatherList, dayNumber = 0) => {
+
+    const day = weatherList[dayNumber];
+
+
+    day.forEach(weatherObj => {
+        console.log(weatherObj);
+        
         const time = weatherObj.dt_txt.split(' ')[1].slice(0,5),
               temperature = kelvinToCelcius(weatherObj.main.temp),
               feelsTemp = kelvinToCelcius(weatherObj.main.feels_like),
               weatherCondition = weatherObj.weather[0].description,
               humidity = weatherObj.main.humidity,
-              wind = weatherObj.wind.speed;
+              wind = weatherObj.wind.speed,
+              imgUrl = weatherObj.weather[0].icon;
         const markup = `
             <li class="weather__item">
     
@@ -32,7 +38,7 @@ export const renderWeather = weatherList => {
     
               <div class="weather__info-block">
     
-                <img  alt="" class="weather__icon">
+                <img src="http://openweathermap.org/img/wn/${imgUrl}@2x.png" alt="" class="weather__icon">
       
                 <p class="weather__text">Temperature<span class="weather__temp">${temperature} C</span></p>
     

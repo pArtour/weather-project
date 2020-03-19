@@ -14,15 +14,16 @@
     // .weather__item
 
     &__item {
+        width: 100%;
+        margin-bottom: 20px;
         display: flex;
         flex-direction: column;
 
-        width: 100%;
         overflow: hidden;
         list-style: none;
         background-color: darken($color: $dark-blue, $amount: 2);
 
-        border-bottom: 1px solid $gray;
+        // border-bottom: 1px solid $gray;
 
         &:last-child {
             border-bottom: none;
@@ -67,12 +68,13 @@
         padding: 0 15px;
 
         max-height: 0;
-        transition: all 1s ease-out;
+        transition: all 0.5s ease-out;
     }
 
     // .weather__icon
 
     &__icon {
+        width: 100px;
         text-align: center;
     }
 
