@@ -7,7 +7,8 @@ import Calendar from './app/modules/calendar';
 import * as clockView from './app/view/clock-view';
 import * as weatherView from './app/view/weather-view';
 import * as calendarView from './app/view/calendar-view';
-import { elements, removeHTML } from './app/view/base';
+import * as searchView from './app/view/search-view';
+import { elements, removeHTML, renderPreloader } from './app/view/base';
 
 const state = {}
 
@@ -35,17 +36,25 @@ const calendarControl = (weatherArr) => {
 
 
 const weatherControl = async () => {
-    state.weather = new Weather('Sillamäe');
-    const res = await state.weather.getWeather();
-    const dataArr = res.data.list;
+    renderPreloader(elements.weather.list);
 
+
+    state.weather = new Weather(searchView.getInputValue(elements.searchInput));
+    const res = await state.weather.getWeather();
+    const dataObj = res.data;
+    
+    
     // splitting one huge data array into orginized by days array 
     // resArr -> subArr (1 day) -> objects (weather info) 
+    
+    state.weatherArray = organizeArray(dataObj.list);
+    state.locationObj = dataObj.city;
+    console.log(state.locationObj);
+    
 
-    state.weatherArray = organizeArray(dataArr);
+    removeHTML(elements.weather.list);
+    removeHTML(elements.calendar);
     weatherView.renderWeather(state.weatherArray);
-    // console.log(state.weatherArray , state.weatherArray .length);
-
     calendarControl(state.weatherArray);
     
 
@@ -78,8 +87,8 @@ elements.calendar.addEventListener('click', event => {
         
     };
 });
-
-window.addEventListener('DOMContentLoaded', weatherControl)
+elements.searchInput.addEventListener('change', weatherControl);
+window.addEventListener('DOMContentLoaded', searchView.focusInput)
 // window.addEventListener('DOMContentLoaded', calendarControl)
 
 

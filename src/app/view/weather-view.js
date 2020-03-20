@@ -29,6 +29,7 @@ export const renderWeather = (weatherList, dayNumber = 0) => {
               feelsTemp = kelvinToCelcius(weatherObj.main.feels_like),
               weatherCondition = weatherObj.weather[0].description,
               humidity = weatherObj.main.humidity,
+              cloudiness = weatherObj.clouds.all,
               wind = weatherObj.wind.speed,
               imgUrl = weatherObj.weather[0].icon;
         const markup = `
@@ -47,6 +48,8 @@ export const renderWeather = (weatherList, dayNumber = 0) => {
                 <p class="weather__text">Condition<span class="weather__condition">${weatherCondition}</span></p>
       
                 <p class="weather__text">Humidity<span class="weather__humidity">${humidity}%</span></p>
+
+                <p class="weather__text">Cloudiness<span class="weather__cloudiness">${cloudiness}%</span></p>
       
                 <p class="weather__text">Wind<span class="weather__wind">${wind} m/s</span></p>
     

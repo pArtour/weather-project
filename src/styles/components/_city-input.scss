@@ -1,0 +1,45 @@
+.city-input {
+    font-size: 36px;
+    line-height: 38px;
+    width: 280px;
+    padding: 5px 5px 0 10px;
+    margin-left: 5px;
+
+    border: none;
+    background: transparent;
+    color: $gray;
+    font-weight: 700;
+
+    &::-webkit-input-placeholder {
+        color: $gray;
+    }
+
+    &:-moz-placeholder {
+        color: $gray;
+    }
+
+    &:hover, &:focus, &:active {
+        outline: none;
+        background-color: lighten($color: $dark-blue, $amount: 2)
+    }
+}
+@media screen and (min-width: 768px) {
+    .city-input {
+        font-size: 42px;
+        line-height: 44px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .city-input {
+        font-size: 48px;
+        line-height: 50px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .city-input {
+        font-size: 54px;
+        line-height: 56px;
+    }
+}

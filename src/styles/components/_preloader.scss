@@ -1,0 +1,19 @@
+.preloader {
+    height: 40px;
+    width: 40px;
+    margin: 40vh auto;
+    border: 5px solid $gray;
+    border-top: 5px solid white;
+    border-radius: 50%;
+    animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -31,7 +31,7 @@
 
         &_active {
             .weather__info-block {
-                max-height: 400px;
+                max-height: 700px;
             }
         }
     }
@@ -89,6 +89,10 @@
         font-size: 18px;
         font-weight: 600;
         line-height: 20px;
+
+        span {
+            font-weight: 300;
+        }
     }
 
 }
