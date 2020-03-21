@@ -8,7 +8,8 @@ export const elements = {
         list: document.querySelector('.weather__list')
     },
     calendar: document.querySelector('.calendar__list'),
-    searchInput: document.querySelector('.city-input')
+    searchInput: document.querySelector('.city-input'),
+    map: document.querySelector('#map')
 }
 
 export const removeHTML = parent => {

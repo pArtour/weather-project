@@ -50,6 +50,7 @@ const weatherControl = async () => {
     state.weatherArray = organizeArray(dataObj.list);
     state.locationObj = dataObj.city;
     console.log(state.locationObj);
+    console.log(state.weatherArray);
     
 
     removeHTML(elements.weather.list);
