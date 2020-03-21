@@ -9,7 +9,6 @@ export const elements = {
     },
     calendar: document.querySelector('.calendar__list'),
     searchInput: document.querySelector('.city-input'),
-    map: document.querySelector('#map')
 }
 
 export const removeHTML = parent => {
