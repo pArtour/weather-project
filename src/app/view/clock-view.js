@@ -1,6 +1,7 @@
 import { elements } from "./base";
 
 const formatNumber = (number) => {
+    number = parseInt(number)
     return number < 10 ? number = '0' + number : number = number;
 } 
 
@@ -9,3 +10,5 @@ export const renderClock = ({hours, minutes, seconds}) => {
     elements.clock.minutes.textContent = formatNumber(minutes);
     elements.clock.seconds.textContent = formatNumber(seconds);
 }
+
+

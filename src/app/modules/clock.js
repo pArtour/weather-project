@@ -1,17 +1,5 @@
 export default class Clock {
-    constructor() {
-        this.time = new Date();
-        this.hours = this.time.getHours();
-        this.minutes = this.time.getMinutes();
-        this.seconds = this.time.getSeconds();
-    }
-    getHours() {
-        return this.hours;
-    }
-    getMinutes() {
-        return this.minutes;
-    }
-    getSeconds() {
-        return this.seconds;
+    constructor(offset) {
+        [this.hours, this.minutes, this.seconds] = new Date( new Date().getTime() + offset * 1000).toUTCString().replace( / GMT$/, "" ).match(/\d{0,2}:\d{0,2}:\d{0,2}/g)[0].split(':');
     }
 }

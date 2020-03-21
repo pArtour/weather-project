@@ -14,6 +14,7 @@ const formatTime = time => {
     }
     return time;
 }
+
 const kelvinToCelcius = temperature => Math.round(temperature - 273);
 
 export const renderWeather = (weatherList, dayNumber = 0) => {
@@ -22,8 +23,6 @@ export const renderWeather = (weatherList, dayNumber = 0) => {
 
 
     day.forEach(weatherObj => {
-        console.log(weatherObj);
-        
         const time = weatherObj.dt_txt.split(' ')[1].slice(0,5),
               temperature = kelvinToCelcius(weatherObj.main.temp),
               feelsTemp = kelvinToCelcius(weatherObj.main.feels_like),
