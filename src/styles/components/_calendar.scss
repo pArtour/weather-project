@@ -29,7 +29,7 @@
         font-weight: 600;
         line-height: 20px;
 
-        &:hover, &:focus {
+        &:hover, &:focus, &_active {
             cursor: pointer;
             outline: none;
             color: #fff;
