@@ -7,5 +7,6 @@ App is made using [OpenWeatherMap API](https://openweathermap.org).
 * Native JavaScript
 * Webpack
 * Axios library
-implementation is done by OOP programming methodology and MVC design pattern for application infrastructure. Also all styles are grouped up in different files.
+
+Implementation is done by OOP programming methodology and MVC design pattern for application infrastructure. Also all styles are grouped up in different files.
 
